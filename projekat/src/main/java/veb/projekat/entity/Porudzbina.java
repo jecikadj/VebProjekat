@@ -3,8 +3,12 @@ package veb.projekat.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Time;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
 
 @Entity
 public class Porudzbina implements Serializable {
@@ -13,27 +17,29 @@ public class Porudzbina implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long UUID;
+    private String uniqueID = UUID.randomUUID().toString();
 
-    //@OneToMany
-
-    //@Column
-    //private Restoran restoran;
+    @OneToOne
+    private Restoran restoran;
 
     @Column
-    private Date datum;
-
-    @Column
-    private Time vreme;
+    private LocalDateTime datumVreme;
 
     @Column
     private Double cena;
 
-    //@Column
-    //private String korisnickoImeKupca;
+    @Column
+    private String korisnickoImeKupca;
 
     @Column
     private Status status;
+
+    @OneToMany()
+    private Set<Artikal> poruceniArtikli;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Dostavljac dostavljac;
+
 
 
 

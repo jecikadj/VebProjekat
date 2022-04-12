@@ -27,9 +27,9 @@ public class Artikal implements Serializable {
     @Column
     private String opis;
 
-    //@ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
-    //private Restoran restoran;
+    @ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+    private Restoran restoran;
 
-    //@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    //private Porudzbina porudzbina;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Porudzbina porudzbina;
 }

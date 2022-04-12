@@ -1,16 +1,16 @@
 package veb.projekat.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 
 public class Komentar{
 
-    //private String korisnickoImeKupca;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    private Kupac kupac;
 
-    //private Long IDRestorana;
+    @OneToOne(fetch = FetchType.EAGER)
+    private Restoran restoran;
 
     private String tekst;
 

@@ -11,8 +11,8 @@ public class Dostavljac extends Korisnik{
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-   // @OneToMany(mappedBy = "dostavljac", fetch = FetchType.LAZY)
-   // private Set<Porudzbina> porudzbine = new HashSet<>();
+    @OneToMany(mappedBy = "dostavljac", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Porudzbina> porudzbine = new HashSet<>();
 
 
 
